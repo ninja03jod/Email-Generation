@@ -1,0 +1,43 @@
+{
+  "input": {
+    "intent": "Propose a strategic partnership to a potential business partner",
+    "key_facts": [
+      "Our platform has 2 million active users across Southeast Asia",
+      "Proposed partnership involves co-marketing and revenue sharing",
+      "We can offer a 20% revenue share on referred conversions",
+      "Requesting an exploratory call in the next two weeks"
+    ],
+    "tone": "persuasive",
+    "recipient_name": "Ms. Verma",
+    "sender_name": "Raj Gupta"
+  },
+  "output": {
+    "subject_line": "Unlocking New Markets: A Strategic Partnership Opportunity",
+    "email_body": "Dear Ms. Verma,\nAs we continue to expand our presence in Southeast Asia, I wanted to reach out to you with an exciting proposal that could mutually benefit our businesses. With 2 million active users across the region, our platform is poised for further growth, and we believe that a strategic partnership with your company could be a key catalyst for this expansion.\nA proposed partnership between us could involve co-marketing efforts, where we collaborate to promote each other's services to our respective audiences, as well as a revenue-sharing model. We are open to discussing the specifics, but we can offer a competitive 20% revenue share on referred conversions, ensuring that both parties benefit from the partnership.\nI would love the opportunity to discuss this proposal in more detail with you and explore how we can work together to drive growth. Would you be available for an exploratory call within the next two weeks? This would give us a chance to delve deeper into the possibilities and see if our businesses align.\nLooking forward to the possibility of working together and unlocking new markets.\nBest regards,\nRaj Gupta",
+    "tone_applied": "persuasive",
+    "facts_woven_in": [
+      "Our platform has 2 million active users across Southeast Asia",
+      "Proposed partnership involves co-marketing and revenue sharing",
+      "We can offer a 20% revenue share on referred conversions",
+      "Requesting an exploratory call in the next two weeks"
+    ],
+    "writing_rationale": "Started with a hook to grab the reader's attention, then introduced the proposal and highlighted the benefits of the partnership. Wove in all key facts naturally, including the number of active users, the proposed partnership terms, and the request for an exploratory call. Closed with a positive note, looking forward to the possibility of working together."
+  },
+  "metadata": {
+    "model_name": "llama-3.3-70b-versatile",
+    "timestamp": "2026-04-16T16:06:38.249302",
+    "duration_ms": 1974.4,
+    "input_intent": "Propose a strategic partnership to a potential business partner",
+    "input_tone": "persuasive",
+    "input_facts_count": 4,
+    "few_shot_tones": [
+      "persuasive",
+      "formal"
+    ],
+    "usage": {
+      "request_tokens": 1500,
+      "response_tokens": 390,
+      "total_tokens": 1890
+    }
+  }
+}

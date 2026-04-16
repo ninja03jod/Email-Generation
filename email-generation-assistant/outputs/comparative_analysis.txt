@@ -1,0 +1,76 @@
+
+╔══════════════════════════════════════════════════════════════════════╗
+║            SECTION 3 — COMPARATIVE ANALYSIS REPORT                 ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+EVALUATION OVERVIEW
+───────────────────
+  Models Compared : llama-3.3-70b-versatile  vs  llama-3.1-8b-instant
+  Scenarios Run   : 11 × 2 models = 22 total evaluations
+  Metrics Used    : Fact Recall | Tone Accuracy (LLM-Judge) | Structural Completeness
+
+SCORE SUMMARY (0–100 scale, higher = better)
+──────────────────────────────────────────────
+  Metric                                 Model A    Model B
+  ───────────────────────────────────────────────────────
+  Metric 1 — Fact Recall                   100.0       88.9
+  Metric 2 — Tone Accuracy (LLM-Judge)       83.6       84.4
+  Metric 3 — Structural Completeness        78.2       75.6
+  ───────────────────────────────────────────────────────
+  OVERALL AVERAGE                           87.3       83.0
+
+  Model A = llama-3.3-70b-versatile
+  Model B = llama-3.1-8b-instant
+
+QUESTION 1: Which model performed better?
+──────────────────────────────────────────
+  WINNER: llama-3.3-70b-versatile
+  with an overall average score of 87.3/100 — 4.3 points ahead
+  of llama-3.1-8b-instant (83.0/100).
+
+  The margin was most pronounced in Structural Completeness, where llama-3.1-8b-instant scored
+  only 75.6/100 vs 78.2/100 for llama-3.3-70b-versatile.
+  (See score table above for full breakdown.)
+
+QUESTION 2: What was the biggest failure mode of the lower-performing model?
+─────────────────────────────────────────────────────────────────────────────
+  The primary failure mode of llama-3.1-8b-instant was poor performance on Structural Completeness
+  (score: 75.6/100). This suggests that the smaller/weaker
+  model struggles to consistently maintain:
+    • The exact requested tone register throughout the email
+    • Ensuring every key fact is woven naturally into the body text
+    • Producing all structural components of a professional email
+
+  Worst individual scenario for llama-3.1-8b-instant:
+    Scenario   : S03 — Immediately alert the engineering team about a live pay…
+    Avg Score  : 70.0/100
+    Judge Note : "The email maintains an urgent tone through direct language and time-sensitive information, but minor lapses occur due to slightly formal vocabulary and a polite request for acknowledgement, which slightly dilutes the urgency."
+
+QUESTION 3: Which model do you recommend for production?
+──────────────────────────────────────────────────────────
+  RECOMMENDATION: llama-3.3-70b-versatile
+
+  Justification (based on custom metric data):
+
+  1. FACT RECALL (M1): llama-3.3-70b-versatile scored 100.0/100, indicating it reliably
+     incorporates all required facts — a non-negotiable requirement for a
+     business email tool where missing a fact can damage credibility.
+
+  2. TONE ACCURACY (M2): With an LLM-Judge score of 83.6/100,
+     llama-3.3-70b-versatile demonstrates consistent adherence to the requested tone
+     register across all five tone types. Tone failures frustrate end
+     users immediately and erode trust in the tool.
+
+  3. STRUCTURAL COMPLETENESS (M3): llama-3.3-70b-versatile scored 78.2/100,
+     confirming that generated emails reliably include all five structural
+     components (greeting → purpose → body → CTA → sign-off). Structural
+     gaps produce emails that feel incomplete or amateurish.
+
+  While llama-3.1-8b-instant may offer faster response times or lower cost,
+  the quality gap of 4.3 overall points represents a meaningful
+  difference in user experience that would require significant
+  prompt engineering or post-processing to bridge in production.
+
+  VERDICT: Deploy llama-3.3-70b-versatile as the production model.
+  Monitor monthly with this same 10-scenario eval suite to track
+  quality drift as model versions update.

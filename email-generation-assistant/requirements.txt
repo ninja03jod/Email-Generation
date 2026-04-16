@@ -1,0 +1,77 @@
+# =============================================================================
+#  Email Generation Assistant — Python Dependencies
+#  AI Engineer Candidate Assessment
+#
+#  Install with:
+#      pip install -r requirements.txt
+#
+#  Python version required: 3.10 or higher
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+#  OPTION A (Recommended) — Full Pydantic AI install with Groq provider
+#  Installs: pydantic-ai + pydantic-ai-slim[groq] + groq SDK + pydantic
+# -----------------------------------------------------------------------------
+pydantic-ai[groq]
+
+
+# -----------------------------------------------------------------------------
+#  OPTION B — Slim install (only what is strictly needed)
+#  Use this if you want a lighter environment with no optional extras
+#  Uncomment below and comment out OPTION A above
+# -----------------------------------------------------------------------------
+pydantic-ai-slim[groq]
+
+
+# -----------------------------------------------------------------------------
+#  Groq Python SDK
+#  Required by email_evaluator_2.py for the LLM-as-Judge metric (Metric 2).
+#  The evaluator calls Groq directly via groq.Groq() (not through Pydantic AI)
+#  to avoid Cloudflare 403 issues that urllib triggers in the evaluation loop.
+# -----------------------------------------------------------------------------
+groq
+
+
+# -----------------------------------------------------------------------------
+#  Pydantic — Data validation for EmailInput and EmailOutput models
+#  Pulled in automatically by pydantic-ai but listed explicitly for clarity
+# -----------------------------------------------------------------------------
+pydantic
+
+
+# =============================================================================
+#  QUICK REFERENCE — what each package does in this project
+#
+#  pydantic-ai        → Agent framework (GroqModel, GroqProvider, Agent, RunContext)
+#                       Used in:  email_agent_2.py
+#
+#  pydantic-ai[groq]  → Includes the groq optional dependency group for pydantic-ai
+#                       Enables:  GroqModel, GroqProvider classes
+#
+#  pydantic-ai-slim   → Lightweight version of pydantic-ai without optional extras
+#  [groq]             → Adds the groq integration on top of the slim install
+#
+#  groq               → Official Groq Python SDK
+#                       Used in:  email_evaluator_2.py (metric_tone_accuracy / LLM judge)
+#                                 groq.Groq() → direct chat.completions.create() calls
+#
+#  pydantic           → EmailInput, EmailOutput, _ToneJudgeOutput model validation
+#                       Used in:  email_agent_2.py, email_evaluator_2.py
+#
+# =============================================================================
+
+
+# =============================================================================
+#  MANUAL INSTALL COMMANDS (if you prefer not to use requirements.txt)
+#
+#  Recommended:
+#      pip install "pydantic-ai[groq]" groq
+#
+#  Minimal slim install:
+#      pip install "pydantic-ai-slim[groq]" groq
+#
+#  Verify installation:
+#      python -c "from pydantic_ai.models.groq import GroqModel; from groq import Groq; print('OK')"
+#
+# =============================================================================
